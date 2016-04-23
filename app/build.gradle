@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.yaoyumeng.asmlibrary"
+        minSdkVersion 9
+        targetSdkVersion 9
+
+        /*ndk {
+            moduleName "jni-asmlibrary"
+            abiFilters "armeabi", "armeabi-v7a"
+            stl "gnustl_static"
+            ldLibs "log", "dl"
+            cFlags "-I D:\\AndroidDev\\OpenCV-2.4.10-android-sdk\\sdk\\native\\jni\\include"
+        }*/
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    sourceSets.main.jni.srcDirs = []
+    sourceSets.main.jniLibs.srcDirs = ['src/main/libs','src/main/jniLibs']
+
+    task ndkBuild(type: Exec, description: 'Compile JNI source with NDK') {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        def ndkDir = properties.getProperty('ndk.dir')
+
+        if (org.apache.tools.ant.taskdefs.condition.Os.isFamily(org.apache.tools.ant.taskdefs.condition.Os.FAMILY_WINDOWS)) {
+            commandLine "$ndkDir/ndk-build.cmd", '-C', file('src/main/jni').absolutePath
+        } else {
+            commandLine "$ndkDir/ndk-build", '-C', file('src/main/jni').absolutePath
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        compileTask -> compileTask.dependsOn ndkBuild
+    }
+
+    task ndkClean(type: Exec, description: 'Clean NDK Binaries') {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        def ndkDir = properties.getProperty('ndk.dir')
+
+        if (org.apache.tools.ant.taskdefs.condition.Os.isFamily(org.apache.tools.ant.taskdefs.condition.Os.FAMILY_WINDOWS)) {
+            commandLine "$ndkDir/ndk-build.cmd",'clean', '-C', file('src/main/jni').absolutePath
+        } else {
+            commandLine "$ndkDir/ndk-build",'clean', '-C', file('src/main/jni').absolutePath
+        }
+    }
+
+    clean.dependsOn 'ndkClean'
+}
+
+dependencies {
+    compile project(':opencvlibrary2410')
+}

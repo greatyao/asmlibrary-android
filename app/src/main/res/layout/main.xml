@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center|right"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+       <Button
+           android:id="@+id/cameraButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:layout_marginTop="20dp"
+           android:background="@drawable/camera_mode" />
+
+        <TextView
+            android:id="@+id/cameraLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/camera"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="12dp" />
+
+
+       <Button
+           android:id="@+id/gallaryButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="bottom"
+           android:layout_marginRight="5dp"
+           android:layout_marginTop="20dp"
+           android:background="@drawable/gallery_mode" />
+
+		<TextView
+		    android:id="@+id/gallaryLabel"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:text="@string/gallary"
+		    android:textAppearance="?android:attr/textAppearanceSmall"
+		    android:textSize="12dp" />
+    </LinearLayout>
+    
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical" >
+
+	    <Button
+	        android:id="@+id/aboutButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:background="@drawable/setting_about" />
+
+	    <Button
+	        android:id="@+id/avatarButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentRight="true"
+	        android:background="@drawable/avatar"
+	        android:gravity="bottom" />
+
+	    <Button
+	        android:id="@+id/switchCameraButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:background="@drawable/switch_camera" />
+
+	</RelativeLayout>
+	
+</LinearLayout>

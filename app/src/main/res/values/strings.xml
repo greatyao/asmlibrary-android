@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ASMLibrary</string>
+    <string name="takepicture">Take</string>
+    <string name="takenewpicture">New</string>
+	<string name="screenshot">Screenshot</string>
+	<string name="gallary">Gallary</string>
+	<string name="camera">Camara</string>
+	<string name="switch_camera">Switch</string>
+	
+	<string name="description">A compact SDK for face alignment/tracking</string>
+    <string name="about">About</string>
+	<string name="url">"http://greatyao.github.io/2012/05/06/Introduction-to-ASMLibrary/"</string>
+	<string name="developed">Developed By:</string>
+    <string name="project">Ideia.me</string>
+</resources>
