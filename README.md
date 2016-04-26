@@ -6,7 +6,7 @@ The objective of ASMLibrary is aiming at face alignment/tracking.
 [![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=com.yaoyumeng.asmlibrary)
 
 
-### Faatures
+### Features
 
  * face alignment on picture
  * Face tracking on camera
