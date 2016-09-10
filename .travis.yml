@@ -15,7 +15,7 @@ env:
 env:
   global:
     - TERM=dumb
-    - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
+    - GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=1024m"
     - ANDROID_TARGET=android-21
     - NDK_VERSION=r12b
     - NDK_CCACHE=ccache
@@ -45,5 +45,5 @@ android:
     - build-tools-21.1.2
 
 script:
-  - echo  "ndk.dir=$(ANDROID_NDK_HOME)" >> local.properties
+  - echo  "ndk.dir=${ANDROID_NDK_HOME}" >> local.properties
   - ./gradlew build
