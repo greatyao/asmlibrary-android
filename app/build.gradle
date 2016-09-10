@@ -7,15 +7,7 @@ android {
     defaultConfig {
         applicationId "com.yaoyumeng.asmlibrary"
         minSdkVersion 9
-        targetSdkVersion 9
-
-        /*ndk {
-            moduleName "jni-asmlibrary"
-            abiFilters "armeabi", "armeabi-v7a"
-            stl "gnustl_static"
-            ldLibs "log", "dl"
-            cFlags "-I D:\\AndroidDev\\OpenCV-2.4.10-android-sdk\\sdk\\native\\jni\\include"
-        }*/
+        targetSdkVersion 21
     }
 
     buildTypes {
@@ -23,6 +15,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+    
+    lintOptions {
+        abortOnError false
     }
 
     sourceSets.main.jni.srcDirs = []
