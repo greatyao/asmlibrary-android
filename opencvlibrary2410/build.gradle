@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 8
+        targetSdkVersion 21
     }
 
     buildTypes {
@@ -14,5 +14,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+    
+    
+    lintOptions {
+        abortOnError false
     }
 }
